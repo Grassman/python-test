@@ -1,0 +1,2 @@
+2.1: grep ".*-.*-.*" <file-pattern>
+2.2: find ~/ -mmin -$(( 10 * 60 ))
