@@ -27,7 +27,7 @@
 /***** Change this, or use -c on the command line to specify it *****/
 
 #ifndef SERVER_ROOT
-#define SERVER_ROOT "/etc/boa"
+#define SERVER_ROOT "/etc/boa9411"
 #endif
 
 /***** Various stuff that you may want to tweak, but probably shouldn't *****/

@@ -54,13 +54,14 @@ void build_needs_escape(void)
     b = 1;
     for (a=0; b!=0; a++) b=b<<1;
     /* I found $a bit positions available in an unsigned long. */
-    if (a < NEEDS_ESCAPE_WORD_LENGTH) {
+    /*if (a < NEEDS_ESCAPE_WORD_LENGTH) {
         fprintf(stderr,
                 "NEEDS_ESCAPE_SHIFT configuration error -- "\
                 "%d should be <= log2(%d)\n",
                 NEEDS_ESCAPE_SHIFT, a);
         exit(1);
-    } else if (a >= 2*NEEDS_ESCAPE_WORD_LENGTH) {
+    } else */ 
+    if (a >= 2*NEEDS_ESCAPE_WORD_LENGTH) {
         /* needs_escape_shift configuration suboptimal */
     } else {
         /* Ahh, just right! */;

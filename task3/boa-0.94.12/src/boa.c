@@ -45,7 +45,7 @@ static void create_server_socket(void);
 static void drop_privs(void);
 
 int max_connections = 0;
-static int sock_opt = 1;
+int sock_opt = 1;
 static int do_fork = 1;
 int devnullfd = -1;
 

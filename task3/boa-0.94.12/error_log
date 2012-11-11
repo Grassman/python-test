@@ -1,0 +1,16 @@
+[11/Nov/2012:18:13:42 +0000] Warning: Not running as root: no attempt to change to uid 1000 gid 1000
+[11/Nov/2012:18:13:42 +0000] boa: server version Boa/0.94.12
+[11/Nov/2012:18:13:42 +0000] boa: server built Nov 11 2012 at 19:13:08.
+[11/Nov/2012:18:13:42 +0000] boa: starting server pid=18402, port 9412
+[11/Nov/2012:18:14:40 +0000] Attempt to hash NULL or empty string!
+[11/Nov/2012:18:29:36 +0000] Warning: Not running as root: no attempt to change to uid 1000 gid 1000
+[11/Nov/2012:18:29:36 +0000] boa: server version Boa/0.94.12
+[11/Nov/2012:18:29:36 +0000] boa: server built Nov 11 2012 at 19:13:08.
+[11/Nov/2012:18:29:36 +0000] boa: starting server pid=18785, port 9412
+[11/Nov/2012:18:30:21 +0000] request from 192.168.0.239 "GET /favicon.ico HTTP/1.1" ("/home/daniel/dev/python-test/task3/favicon.ico"): document open: No such file or directory
+[11/Nov/2012:18:30:21 +0000] request from 192.168.0.239 "GET /favicon.ico HTTP/1.1" ("/home/daniel/dev/python-test/task3/favicon.ico"): document open: No such file or directory
+[11/Nov/2012:18:31:31 +0000] Attempt to hash NULL or empty string!
+[11/Nov/2012:18:34:44 +0000] request from 192.168.0.239 "GET /boa-0.94.11%5Eboa.conf HTTP/1.1" ("/home/daniel/dev/python-test/task3/boa-0.94.11^boa.conf"): document open: No such file or directory
+[11/Nov/2012:18:35:05 +0000] request from 192.168.0.239 "GET /boa-0.94.11*boa.conf HTTP/1.1" ("/home/daniel/dev/python-test/task3/boa-0.94.11*boa.conf"): document open: No such file or directory
+[11/Nov/2012:18:35:22 +0000] request from 192.168.0.239 "GET /boa-0.94.11//~boa.conf HTTP/1.1" ("/home/daniel/dev/python-test/task3/boa-0.94.11/~boa.conf"): document open: No such file or directory
+[11/Nov/2012:18:35:26 +0000] request from 192.168.0.239 "GET /boa-0.94.11/~boa.conf HTTP/1.1" ("/home/daniel/dev/python-test/task3/boa-0.94.11/~boa.conf"): document open: No such file or directory

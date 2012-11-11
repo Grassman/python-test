@@ -97,7 +97,7 @@ char *get_commonlog_time(void)
 
     if (use_localtime) {
         t = localtime(&current_time);
-        time_offset = TIMEZONE_OFFSET(t);
+        time_offset = 1;
     } else {
         t = gmtime(&current_time);
         time_offset = 0;
