@@ -19,3 +19,7 @@ NEEDS_ESCAPE_SHIFT configuration error -- 6 should be <= log2(32)
 [11/Nov/2012:18:29:36 +0000] boa: starting server pid=18783, port 9411
 [11/Nov/2012:18:34:48 +0000] request from 192.168.0.239 "GET /boa-0.94.11%5Eboa.conf HTTP/1.1" ("/home/daniel/dev/python-test/task3//boa-0.94.11^boa.conf"): document open: No such file or directory
 [11/Nov/2012:18:34:57 +0000] request from 192.168.0.239 "GET /boa-0.94.11*boa.conf HTTP/1.1" ("/home/daniel/dev/python-test/task3//boa-0.94.11*boa.conf"): document open: No such file or directory
+[11/Nov/2012:19:58:20 +0000] Warning: Not running as root: no attempt to change to uid 1000 gid 1000
+[11/Nov/2012:19:58:20 +0000] boa: server version Boa/0.94.11
+[11/Nov/2012:19:58:20 +0000] boa: server built Nov 11 2012 at 18:36:31.
+[11/Nov/2012:19:58:20 +0000] boa: starting server pid=19473, port 9411
