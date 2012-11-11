@@ -1,0 +1,17 @@
+How I solved it:
+	-Installed Ubuntu on VirtualBox. For coding python and running db.
+	-Installed mysql server on Ubuntu server with apt-get.
+		-Added user 'test' with pwd 'test666' with mysql console
+	-Googled 'finding access points with dbus'. Read pages like: http://dbus.freedesktop.org/doc/dbus-python/doc/tutorial.html
+	-Installed dbus-bindings with apt-get (for accessing Netowrk manager)
+	-Installed NetworkManager with apt-get (for querying network devices)
+	-Installed mysqldb which is a mysql db adapter for python
+	-Wrote script 'persistAps.py' which does:
+		- Connect to mysql
+		- Create table(if not exist)
+		- Connect to dbus
+		- Retrieve proxy object for NetworkManager
+		- Retrieve devices from NetworkManager
+		- ...
+		- Write to db (if MAC not already there)
+		- Exit
