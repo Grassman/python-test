@@ -1,0 +1,37 @@
+Test Plan for BOA Web Server
+
+Introduction
+	This document describes the planned test activites during development of BOA Web Server
+
+Unit test
+	-What: All source code is to be unit tested. All logical parts of the source code should be tested with appropriate mocking framework for its dependencies.  
+	-How: The tests should be run in when compiling and run in the commit phase of the CD server on each commit to repository.
+	-Criteria: All tests shall pass and test coverage of new and changed code should be as high as possible.		
+
+Integration test
+	-What: The server is to be deployed in its target environment(s) and automated tests from previous releases are run(make sure it's backwards compatible). These tests are run on every commit if the commit phase is successfull in the CD server.
+	-How: The server is run on it's target environment(s) with real documents as data. Data is added before the suite executes and cleaned up after. For corner cases, tests handle their own specific data(and cleanup).
+	-Criteria: All 'old' features shall still work. Ie. existing integration tests shall all pass.
+
+Acceptance test
+	-What: New automated tests are to be written against the http interface for all new functionality and mapped to the requirements, respectivly.  The tests will be added to the integration test suite.
+	-How: Same as integration test.
+	-Criteria: All new functional requirements shall be covered with new test cases and pass.
+
+Load test
+	-What: The server is to be put under load for atleast 3 days. Verifying that there is no leaks. Preferably metrics is collected for analysis, such as response times. CD server is setup with manual task to deploy to load test server.
+	-How: With scripts or load test frameworks, put the server under constant load for atleast 3 days. Analyse memory and cpu usage over time.
+	-Criteria: All leaks must be fixed
+
+Non functional testing
+	-What: Make sure documentation is correct. 
+	-How:  Follow doucmentation for installation on 'clean' server. Smoke test to see that it is running.
+	-What: KPIs are met, automated if possible and put in CD machine.
+	-How: Use appropriate tool to benchmark KPIs(such as ZeusBench)
+	-Criteria: KPIs are met. If not met from before, atleast not worse.
+
+Exploratory testing
+	What: Manual tests for 'breaking' the server. Not part of the automated suits.
+	How: Scripting attacks, trying to break the server with malicous requests.
+ 	Criteria: All issues found should be fixed and documented(for later iterations)
+
