@@ -42,11 +42,16 @@ def find_aps():
     		print 'Interface: ' + name  
 		if deviceType == 2:
 			print 'It is wifi!'
-			accesspoints = device_proxy.GetAccessPoints(dbus_interface='org.freedesktop.NetworkManager.Device.Wireless')
-			for ap in accesspoints:
-				ap_proxy = bus.get_object("org.freedesktop.NetworkManager.Device.Wireless", ap)
-				ap_prop_if = dbus.Interface(dev_proxy, "org.freedesktop.DBus.Properties")
-				ssid = ap_prop_if.Get("org.freedesktop.NetworkManager.AccessPoint","ssid")
+			wifi_iface = dbus.Interface(device_proxy, "org.freedesktop.NetworkManager.Device.Wireless")
+		        wifi_prop_iface = dbus.Interface(device_proxy, "org.freedesktop.DBus.Properties")
+
+	        	# Get all APs the card can see
+        		aps = wifi_iface.GetAccessPoints()
+        		for ap in aps:
+            			ap_proxy = bus.get_object("org.freedesktop.NetworkManager", ap)
+            			ap_prop_if = dbus.Interface(ap_proxy, "org.freedesktop.DBus.Properties")
+				
+				ssid = ap_prop_if.Get("org.freedesktop.NetworkManager.AccessPoint","ssid",byte_arrays=True)
 				mac = ap_prop_if.Get("org.freedesktop.NetworkManager.AccessPoint","HwAddress")
 				wpaflag = ap_prop_if.Get("org.freedesktop.NetworkManager.AccessPoint","WpaFlags")
 				encrypted = "No"
