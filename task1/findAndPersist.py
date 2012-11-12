@@ -35,22 +35,25 @@ def find_aps():
 	# Get device-specific state
 	devices = manager.GetDevices()
 	for d in devices:
-    		dev_proxy = bus.get_object("org.freedesktop.NetworkManager", d)
-    		prop_iface = dbus.Interface(dev_proxy, "org.freedesktop.DBus.Properties")
+    		device_proxy = bus.get_object("org.freedesktop.NetworkManager", d)
+    		prop_iface = dbus.Interface(device_proxy, "org.freedesktop.DBus.Properties")
     		name = prop_iface.Get("org.freedesktop.NetworkManager.Device", "Interface")
 	        deviceType = prop_iface.Get("org.freedesktop.NetworkManager.Device", "deviceType")
     		print 'Interface: ' + name  
 		if deviceType == 2:
 			print 'It is wifi!'
-			wireless = dbus.Interface(dev_proxy, "org.freedesktop.NetworkManager.Device.Wireless")
-			accesspoints = wireless.GetAccessPoints()
+			accesspoints = device_proxy.GetAccessPoints(dbus_interface='org.freedesktop.NetworkManager.Device.Wireless')
 			for ap in accesspoints:
 				ap_proxy = bus.get_object("org.freedesktop.NetworkManager.Device.Wireless", ap)
 				ap_prop_if = dbus.Interface(dev_proxy, "org.freedesktop.DBus.Properties")
 				ssid = ap_prop_if.Get("org.freedesktop.NetworkManager.AccessPoint","ssid")
-				print ssid
-	#persist_ap('ssid','mac','YES')
-        #persist_ap('ssid2','mac2','NO')
+				mac = ap_prop_if.Get("org.freedesktop.NetworkManager.AccessPoint","HwAddress")
+				wpaflag = ap_prop_if.Get("org.freedesktop.NetworkManager.AccessPoint","WpaFlags")
+				encrypted = "No"
+				if wpaflag > 0:
+					encrypted = "Yes"
+				print 'Persisting ' + ssid + ', ' + mac + ', ' + encrypted
+				#persist_ap(ssid,mac,encrypted)
  
 if __name__ == "__main__":
         #con = mdb.connect('localhost', 'test', 'test666', 'test')
