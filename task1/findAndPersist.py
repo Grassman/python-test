@@ -61,11 +61,10 @@ def find_aps():
 				#persist_ap(ssid,mac,encrypted)
  
 if __name__ == "__main__":
-        #con = mdb.connect('localhost', 'test', 'test666', 'test')
-        #with con:
-        #        cur = con.cursor()
-        #create_table()
+        con = mdb.connect('localhost', 'test', 'test666', 'test')
+        cur = con.cursor()
+        create_table()
         find_aps()
-	#con.commit()
-        #print_ap_table()
-        #con.close()
+	con.commit()
+        print_ap_table()
+        con.close()
