@@ -1,0 +1,8 @@
+Mac(client)
+	Starta: stunnel /opt/local/etc/stunnel/stunnel.conf
+	Log: tail -f /opt/local/etc/stunnel/stunnel.log
+
+Ubuntu(server)
+	Starta: stunnel4 /etc/stunnel/stunnel.conf
+	Log: tail -f /etc/stunnel/stunnel.log
+
